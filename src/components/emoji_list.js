@@ -1,16 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-
 export default class EmojiList extends React.Component{
     renderEmoji(){
-      const path = '../emojiList.json';
-        axios.get(path)
+        axios.get('../emojiList.json')
           .then((res)=>{
-            console.log(res);
+            console.log(res.data);
           })
           .catch(function (error) {
-            console.log(error);
+            console.log(error.res);
   });
     }
     render(){
