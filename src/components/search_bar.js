@@ -13,7 +13,11 @@ export default class SearchBaar extends React.Component{
         return(
                <div className= "container">
                 <div className="row">
-                   <input type="text" value={this.state.term}  placeholder="Enter the description" onChange={this.onInputChange.bind(this)} />
+                   <input type="text" 
+                   className = "form-control"
+                   value={this.state.term}  
+                   placeholder="Enter the description" 
+                   onChange={this.onInputChange.bind(this)} />
                 </div>
                </div>
                )
