@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+
 export default class EmojiList extends React.Component{
     constructor(props){
       super(props);
@@ -12,18 +13,29 @@ export default class EmojiList extends React.Component{
           console.log(err.response);
         })
     }
+   
 
     renderList(){
+
       const {emojis}  = this.state;
-      console.log(emojis);
-        return emojis.map((emoji,i)=>{
-        return (<li key={i} className="list-group-item">{emoji.symbol} -- {emoji.title}</li>);
-      })
-    }
+      const {search} = this.props;
+      if(search === ''){
+         return emojis.map((emoji,i)=>{
+         return (<li key={i} className="list-group-item">{emoji.symbol} -- {emoji.title}</li>);
+      });
+      }
+      let items = emojis.filter((emoji)=>{
+          return emoji.title === search;
+      });
+        return items.map((emoji,i)=>{
+         return (<li key={i} className="list-group-item">{emoji.symbol} -- {emoji.title}</li>);
+      });
+      }
+    
 
     render(){
         return(
-            <div>   
+            <div className="container">   
               <ul className="list-group">
                   {this.renderList()}
               </ul>
