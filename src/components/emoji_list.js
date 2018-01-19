@@ -25,7 +25,7 @@ export default class EmojiList extends React.Component{
       });
       }
       let items = emojis.filter((emoji)=>{
-          return emoji.title === search;
+          return emoji.title.match(search);
       });
         return items.map((emoji,i)=>{
          return (<li key={i} className="list-group-item">{emoji.symbol} -- {emoji.title}</li>);
