@@ -21,14 +21,14 @@ export default class EmojiList extends React.Component{
       const {search} = this.props;
       if(search === ''){
          return emojis.map((emoji,i)=>{
-         return (<li key={i} className="list-group-item">{emoji.symbol} -- {emoji.title}</li>);
+         return (<li key={i} className="list-group-item">{emoji.symbol} - {emoji.title} --> {emoji.keywords} </li>);
       });
       }
       let items = emojis.filter((emoji)=>{
-          return emoji.title.match(search);
+          return emoji.title.match(search) || emoji.keywords.match(search);
       });
         return items.map((emoji,i)=>{
-         return (<li key={i} className="list-group-item">{emoji.symbol} -- {emoji.title}</li>);
+         return (<li key={i} className="list-group-item">{emoji.symbol} - {emoji.title} --> {emoji.keywords}</li>);
       });
       }
     
